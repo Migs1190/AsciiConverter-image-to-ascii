@@ -13,21 +13,28 @@ The following images are converted using the script with different options.
 
 (Not the actual Ascii/Dot art copied as text)
 
+<div style="display: flex">
 <img src="public/ch.webp" width="30%"/>
 <img src="public/as.jpg" width="30%"/>
 <img src="public/do.jpg" width="30%"/>
 
+</div>
+
 **With Shading:**
 
+<div style="display: flex">
 <div style="width:30%; display:inline-block;"></div>
 <img src="public/as-sh.jpg" width="30%"/>
 <img src="public/do-sh.jpg" width="30%"/>
+</div>
 
 **With Colors:**
 
+<div style="display: flex">
 <div style="width:30%; display:inline-block;"></div>
 <img src="public/as-cl.jpg" width="30%"/>
 <img src="public/do-cl.jpg" width="30%"/>
+</div>
 
 ## References
 
