@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+ <title>Document</title>
+ <style>
+  body {
+   margin: 0;
+   padding: 0 10px;
+   height: 100vh;
+   background-color: #2a2a2a;
+   color: white;
+   display: flex;
+   align-items: center;
+  }
+
+  * {
+   font-family: monospace;
+   font-size: 16px;
+  }
+
+  #container {
+   display: flex;
+   flex-direction: row;
+   align-items: start;
+   gap: 15px;
+  }
+
+  #controls {
+   height: 40vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   gap: 10px;
+  }
+
+  #type-control {
+   display: flex;
+   flex-direction: column;
+  }
+
+  #canvas-container {
+   background: #000;
+   border: 1px solid white;
+   width: 60vw;
+   height: 90vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+  }
+
+  #main-canvas {
+   width: 100%;
+   height: 100%;
+  }
+
+  input[type="number"] {
+   width: 50px;
+   text-align: center;
+   color: white;
+  }
+
+  input {
+   background-color: #34363A;
+  }
+
+  #action-btns {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   opacity: 0;
+  }
+
+  #action-btns:hover {
+   background-color: black;
+   opacity: 0.5;
+   cursor: pointer;
+  }
+
+  #action-btns>div {
+   width: 100%;
+   flex: 1;
+   display: grid;
+   place-content: center;
+   opacity: 0.5;
+  }
+
+  #action-btns>div>div {
+   font-size: 40px;
+   font-family: cursive;
+  }
+
+  #action-btns #copy-btn {
+   background-color: salmon;
+  }
+
+  #action-btns #copy-btn:hover {
+   opacity: 1
+  }
+
+  #action-btns #save-btn {
+   background-color: seagreen;
+  }
+
+  #action-btns #save-btn:hover {
+   opacity: 1
+  }
+
+  #action-btns #upload-btn {
+   background-color: skyblue;
+  }
+
+  #action-btns #upload-btn:hover {
+   opacity: 1
+  }
+
+  #upload-btn {
+   position: relative;
+  }
+
+  #upload-btn #image-uploader {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   opacity: 0;
+  }
+
+  #pixel-count,
+  #og-pixel-count {
+   color: sandybrown;
+  }
+
+  .desc {
+   font-size: 10px;
+   color: gray;
+  }
+ </style>
+</head>
+
+<body>
+
+ <div id="container">
+  <div id="canvas-container">
+   <div id="action-btns">
+    <div id="save-btn">
+     <div>Save as Image</div>
+    </div>
+    <div id="upload-btn">
+     <div>Upload Image</div>
+     <input type="file" id="image-uploader">
+    </div>
+    <div id="copy-btn">
+     <div>Copy as Text</div>
+    </div>
+   </div>
+   <canvas id="main-canvas"></canvas>
+  </div>
+  <div id="controls">
+   <div id="counters">
+    <div>Original Pixel Count: <span id="og-pixel-count"></span></div>
+    <div>Scaled Pixel Count: <span id="pixel-count"></span></div>
+   </div>
+
+   <div>
+    <label for="luma-value">
+     <input type="number" id="luma-value" value="50" min="1" max="99" disabled>
+     Perceived Brightness
+    </label>
+   </div>
+
+   <div>
+    <label for="scale-value">
+     <input type="number" id="scale-value" value="25" min="1" max="1024"
+      title="Dot art works best with high image scales &NewLine;Ascii art works best with low image scales">
+     Image Scale <sup class="desc">(Percentage)</sup>
+    </label>
+   </div>
+
+
+   <div id="type-control">
+    <label for="dot">
+     Dot Art
+     <input type="radio" name="type" id="dot">
+    </label>
+
+    <label for="ascii">
+     Ascii Art
+     <input type="radio" name="type" id="ascii" checked>
+    </label>
+   </div>
+   <div id="color-control">
+    <div>
+     <label for="color">
+      Keep colors
+      <input type="checkbox" id="color" checked>
+      <sup class="desc">this looks cool, try it out</sup>
+     </label>
+    </div>
+
+    <div>
+     <label for="shade">
+      Keep Shades
+      <input type="checkbox" id="shade" disabled>
+      <sup class="desc">this one too</sup>
+     </label>
+    </div>
+   </div>
+  </div>
+ </div>
+ <script src="index.js"></script>
+</body>
+
+</html>
